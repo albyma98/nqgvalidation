@@ -3,8 +3,7 @@ import { getCityFromHost } from "@/lib/cities";
 import HeroSection from "@/components/HeroSection";
 import WhatIsItSection from "@/components/WhatIsItSection";
 import ThePlaceSection from "@/components/ThePlaceSection";
-import WaitlistSection from "@/components/WaitlistSection";
-import PreorderSection from "@/components/PreorderSection";
+import JoinSection from "@/components/JoinSection";
 import FooterSection from "@/components/FooterSection";
 
 export default function Home() {
@@ -20,14 +19,10 @@ export default function Home() {
         caption={city.placeCaption}
         image={city.placeImage}
       />
-      <WaitlistSection
-        title={city.waitlistTitle}
+      <JoinSection
+        waitlistTitle={city.waitlistTitle}
         citySlug={city.supabaseCity}
         cityName={city.name}
-      />
-      <PreorderSection
-        body={city.preorderBody}
-        citySlug={city.supabaseCity}
       />
       <FooterSection cityName={city.name} />
     </main>
