@@ -2,23 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 
-interface Block {
-  text: string;
-}
-
-const blocks: Block[] = [
-  {
-    text: "Cammini per Gallipoli seguendo le indicazioni di un'entità che conosce la città meglio di chi la abita. Ti chiama con il nome che le darai.",
-  },
-  {
-    text: "Ogni tappa è un luogo reale. Ogni domanda va cercata nel posto, non sul telefono. Ogni frase è pensata perché tu la ricordi.",
-  },
-  {
-    text: "Dura circa un'ora e mezza. Si vive camminando, con uno o con gli amici. Alla fine qualcosa resta, anche se non sai spiegare bene cosa.",
-  },
-];
-
-export default function WhatIsItSection() {
+export default function WhatIsItSection({ cityName }: { cityName: string }) {
   const ref = useRef<HTMLElement>(null);
   const [visible, setVisible] = useState(false);
 
@@ -33,6 +17,12 @@ export default function WhatIsItSection() {
     return () => observer.disconnect();
   }, []);
 
+  const blocks = [
+    `Cammini per ${cityName} seguendo le indicazioni di un'entità che conosce la città meglio di chi la abita. Ti chiama con il nome che le darai.`,
+    "Ogni tappa è un luogo reale. Ogni domanda va cercata nel posto, non sul telefono. Ogni frase è pensata perché tu la ricordi.",
+    "Dura circa un'ora e mezza. Si vive camminando, con uno o con gli amici. Alla fine qualcosa resta, anche se non sai spiegare bene cosa.",
+  ];
+
   return (
     <section
       ref={ref}
@@ -41,7 +31,6 @@ export default function WhatIsItSection() {
       aria-label="Cos'è NightQuest"
     >
       <div className="mx-auto max-w-[640px]">
-        {/* Label */}
         <div
           className={`mb-10 transition-all duration-[1200ms] ${
             visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
@@ -51,7 +40,6 @@ export default function WhatIsItSection() {
           <span className="label-ui">Un&apos;esperienza notturna</span>
         </div>
 
-        {/* Main title */}
         <h2
           className={`font-serif font-normal italic text-ink-primary text-balance leading-[1.25] mb-16 transition-all duration-[1200ms] ${
             visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
@@ -66,9 +54,8 @@ export default function WhatIsItSection() {
           città, di notte.
         </h2>
 
-        {/* Blocks */}
         <div className="flex flex-col gap-0">
-          {blocks.map((block, i) => (
+          {blocks.map((text, i) => (
             <div key={i}>
               <p
                 className={`text-ink-secondary leading-[1.75] transition-all duration-[1200ms] ${
@@ -80,7 +67,7 @@ export default function WhatIsItSection() {
                   transitionTimingFunction: "cubic-bezier(0.16, 1, 0.3, 1)",
                 }}
               >
-                {block.text}
+                {text}
               </p>
               {i < blocks.length - 1 && (
                 <div className="my-8 w-full h-px bg-night-border opacity-50" />

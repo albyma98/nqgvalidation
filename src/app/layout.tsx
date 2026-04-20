@@ -23,12 +23,12 @@ const APP_URL = process.env.NEXT_PUBLIC_APP_URL ?? "https://nightquest.it";
 export const metadata: Metadata = {
   title: "NightQuest — La notte ha occhi",
   description:
-    "Un'esperienza notturna guidata da un'entità narrativa. In arrivo a Gallipoli, giugno 2026.",
+    "Un'esperienza notturna guidata da un'entità narrativa. In arrivo nelle città italiane, estate 2026.",
   metadataBase: new URL(APP_URL),
   openGraph: {
     title: "NightQuest — La notte ha occhi",
     description:
-      "Un'esperienza notturna guidata da un'entità narrativa. In arrivo a Gallipoli, giugno 2026.",
+      "Un'esperienza notturna guidata da un'entità narrativa. In arrivo nelle città italiane, estate 2026.",
     url: APP_URL,
     siteName: "NightQuest",
     images: [
@@ -46,7 +46,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "NightQuest — La notte ha occhi",
     description:
-      "Un'esperienza notturna guidata da un'entità narrativa. In arrivo a Gallipoli, giugno 2026.",
+      "Un'esperienza notturna guidata da un'entità narrativa. In arrivo nelle città italiane, estate 2026.",
     images: ["/og-image.jpg"],
   },
   robots: {

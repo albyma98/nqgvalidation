@@ -3,7 +3,7 @@ const CONTACT_EMAIL =
 const INSTAGRAM_URL = process.env.NEXT_PUBLIC_INSTAGRAM_URL ?? "#";
 const TIKTOK_URL = process.env.NEXT_PUBLIC_TIKTOK_URL ?? "#";
 
-export default function FooterSection() {
+export default function FooterSection({ cityName }: { cityName: string }) {
   return (
     <footer
       className="relative py-20 px-6 border-t"
@@ -24,7 +24,7 @@ export default function FooterSection() {
           className="font-serif font-light italic text-ink-whisper"
           style={{ fontSize: "0.9375rem" }}
         >
-          In costruzione. A Gallipoli. Dal 2026.
+          In costruzione. A {cityName}. Estate 2026.
         </p>
 
         {/* Links */}

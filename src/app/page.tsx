@@ -13,8 +13,8 @@ export default function Home() {
 
   return (
     <main>
-      <HeroSection subtitle={city.heroSubtitle} />
-      <WhatIsItSection />
+      <HeroSection subtitle={city.heroSubtitle} heroVideo={city.heroVideo} heroPoster={city.heroPoster} />
+      <WhatIsItSection cityName={city.name} />
       <ThePlaceSection
         title={city.placeTitle}
         caption={city.placeCaption}
@@ -23,12 +23,13 @@ export default function Home() {
       <WaitlistSection
         title={city.waitlistTitle}
         citySlug={city.supabaseCity}
+        cityName={city.name}
       />
       <PreorderSection
         body={city.preorderBody}
         citySlug={city.supabaseCity}
       />
-      <FooterSection />
+      <FooterSection cityName={city.name} />
     </main>
   );
 }

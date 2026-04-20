@@ -15,6 +15,7 @@ export async function POST(req: NextRequest) {
   try {
     const body = await req.json();
     const email: string = (body.email ?? "").trim().toLowerCase();
+    const city: string = (body.city ?? "unknown").trim().toLowerCase();
 
     if (!EMAIL_RE.test(email)) {
       return NextResponse.json({ error: "Email non valida." }, { status: 400 });
@@ -29,7 +30,7 @@ export async function POST(req: NextRequest) {
         amount_cents: 100,
         currency: "eur",
         status: "pending",
-        city: "gallipoli",
+        city,
       })
       .select("id")
       .single();
@@ -41,6 +42,8 @@ export async function POST(req: NextRequest) {
 
     const stripe = getStripe();
 
+    const cityLabel = city.charAt(0).toUpperCase() + city.slice(1);
+
     const session = await stripe.checkout.sessions.create({
       payment_method_types: ["card"],
       customer_email: email,
@@ -50,7 +53,7 @@ export async function POST(req: NextRequest) {
             currency: "eur",
             unit_amount: 100,
             product_data: {
-              name: "NightQuest \u2014 Pre-ordine Gallipoli",
+              name: `NightQuest — Pre-ordine ${cityLabel}`,
               description:
                 "Riserva la tua notte. Rimborso garantito entro 48h dalla richiesta.",
             },
@@ -63,7 +66,7 @@ export async function POST(req: NextRequest) {
       cancel_url: `${APP_URL}/cancellato`,
       metadata: {
         supabase_preorder_id: preorder.id,
-        city: "gallipoli",
+        city,
       },
     });
 

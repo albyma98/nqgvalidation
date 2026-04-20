@@ -10,7 +10,7 @@ declare global {
 
 type FormState = "idle" | "loading" | "success" | "already" | "error";
 
-export default function WaitlistSection({ title, citySlug }: { title: string; citySlug: string }) {
+export default function WaitlistSection({ title, citySlug, cityName }: { title: string; citySlug: string; cityName: string }) {
   const ref = useRef<HTMLElement>(null);
   const [visible, setVisible] = useState(false);
   const [email, setEmail] = useState("");
@@ -187,7 +187,7 @@ export default function WaitlistSection({ title, citySlug }: { title: string; ci
             className="mt-5 text-ink-whisper"
             style={{ fontSize: "0.75rem" }}
           >
-            ti avvertiremo quando apriremo a Gallipoli e alle prossime citt&agrave;
+            ti avvertiremo quando apriremo a {cityName}
           </p>
         </div>
       </div>

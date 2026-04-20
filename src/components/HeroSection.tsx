@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 
-export default function HeroSection({ subtitle }: { subtitle: string }) {
+export default function HeroSection({ subtitle, heroVideo, heroPoster }: { subtitle: string; heroVideo: string; heroPoster: string }) {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [mounted, setMounted] = useState(false);
 
@@ -29,10 +29,10 @@ export default function HeroSection({ subtitle }: { subtitle: string }) {
         muted
         loop
         playsInline
-        poster="/images/hero-poster.webp"
+        poster={heroPoster}
         aria-hidden="true"
       >
-        <source src="/videos/hero.mp4" type="video/mp4" />
+        <source src={heroVideo} type="video/mp4" />
       </video>
 
       {/* Dark overlay */}
