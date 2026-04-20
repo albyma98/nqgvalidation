@@ -48,7 +48,7 @@ export default function WhatIsItSection() {
           }`}
           style={{ transitionTimingFunction: "cubic-bezier(0.16, 1, 0.3, 1)" }}
         >
-          <span className="label-ui">Un'esperienza notturna</span>
+          <span className="label-ui">Un&apos;esperienza notturna</span>
         </div>
 
         {/* Main title */}
