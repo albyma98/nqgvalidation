@@ -1,0 +1,23 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npx create-next-app@14 . --typescript --tailwind --eslint --app --src-dir --import-alias \"@/*\" --no-git)",
+      "Read(//c/Users/Alberto/Desktop/**)",
+      "Bash(npx create-next-app@14 nightquest-landing --typescript --tailwind --eslint --app --src-dir --import-alias \"@/*\" --no-git)",
+      "Bash(cp -r /c/Users/Alberto/Desktop/nightquest-landing/* /c/Users/Alberto/Desktop/NigQueGalVALIDATION/)",
+      "Bash(cp /c/Users/Alberto/Desktop/nightquest-landing/.gitignore /c/Users/Alberto/Desktop/NigQueGalVALIDATION/)",
+      "Bash(cp /c/Users/Alberto/Desktop/nightquest-landing/package.json /c/Users/Alberto/Desktop/NigQueGalVALIDATION/)",
+      "Bash(cp /c/Users/Alberto/Desktop/nightquest-landing/postcss.config.mjs /c/Users/Alberto/Desktop/NigQueGalVALIDATION/)",
+      "Bash(cp /c/Users/Alberto/Desktop/nightquest-landing/tailwind.config.ts /c/Users/Alberto/Desktop/NigQueGalVALIDATION/)",
+      "Bash(cp /c/Users/Alberto/Desktop/nightquest-landing/tsconfig.json /c/Users/Alberto/Desktop/NigQueGalVALIDATION/)",
+      "Bash(cp -r /c/Users/Alberto/Desktop/nightquest-landing/src /c/Users/Alberto/Desktop/NigQueGalVALIDATION/)",
+      "Bash(npm install *)",
+      "Bash(npm run *)",
+      "Bash(node -e \"const Stripe = require\\('stripe'\\); console.log\\(Stripe.LATEST_API_VERSION\\)\")",
+      "Bash(node -e \"const pkg = require\\('./node_modules/stripe/package.json'\\); console.log\\(pkg.version\\)\")",
+      "Bash(grep -rn \"\\\\\\\\\\\\\\\\u[0-9a-fA-F]\" /c/Users/Alberto/Desktop/NigQueGalVALIDATION/src/ --include=\"*.tsx\" --include=\"*.ts\")",
+      "Bash(docker --version)",
+      "Bash(aws --version)"
+    ]
+  }
+}
