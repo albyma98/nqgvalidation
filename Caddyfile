@@ -1,3 +1,15 @@
-nightquest.it, www.nightquest.it {
+gallipoli.wearingcash.it {
+    reverse_proxy app:3000
+}
+
+roma.wearingcash.it {
+    reverse_proxy app:3000
+}
+
+ortigia.wearingcash.it {
+    reverse_proxy app:3000
+}
+
+matera.wearingcash.it {
     reverse_proxy app:3000
 }

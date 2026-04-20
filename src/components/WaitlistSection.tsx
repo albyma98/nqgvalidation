@@ -10,7 +10,7 @@ declare global {
 
 type FormState = "idle" | "loading" | "success" | "already" | "error";
 
-export default function WaitlistSection() {
+export default function WaitlistSection({ title, citySlug }: { title: string; citySlug: string }) {
   const ref = useRef<HTMLElement>(null);
   const [visible, setVisible] = useState(false);
   const [email, setEmail] = useState("");
@@ -49,6 +49,7 @@ export default function WaitlistSection() {
         body: JSON.stringify({
           email: email.trim().toLowerCase(),
           utm: getUtmParams(),
+          city: citySlug,
         }),
       });
 
@@ -97,7 +98,7 @@ export default function WaitlistSection() {
             transitionTimingFunction: "cubic-bezier(0.16, 1, 0.3, 1)",
           }}
         >
-          Ti avvertiremo quando L&apos;Ombra sar&agrave; pronta.
+          {title}
         </h2>
 
         {/* Subtitle */}

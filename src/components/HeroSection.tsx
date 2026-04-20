@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 
-export default function HeroSection() {
+export default function HeroSection({ subtitle }: { subtitle: string }) {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [mounted, setMounted] = useState(false);
 
@@ -117,7 +117,7 @@ export default function HeroSection() {
             transitionTimingFunction: "cubic-bezier(0.16, 1, 0.3, 1)",
           }}
         >
-          Presto a Gallipoli.
+          {subtitle}
         </p>
       </div>
 

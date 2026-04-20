@@ -3,7 +3,13 @@
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 
-export default function ThePlaceSection() {
+interface Props {
+  title: string;
+  caption: string;
+  image: string;
+}
+
+export default function ThePlaceSection({ title, caption, image }: Props) {
   const ref = useRef<HTMLElement>(null);
   const [visible, setVisible] = useState(false);
 
@@ -36,7 +42,7 @@ export default function ThePlaceSection() {
             transitionTimingFunction: "cubic-bezier(0.16, 1, 0.3, 1)",
           }}
         >
-          A Gallipoli, d&apos;estate.
+          {title}
         </h2>
 
         <div className="grid md:grid-cols-[1fr_220px] gap-10 items-start">
@@ -55,8 +61,8 @@ export default function ThePlaceSection() {
               style={{ aspectRatio: "16/9" }}
             >
               <Image
-                src="/images/gallipoli-night.jpg"
-                alt="Vicolo notturno del centro storico di Gallipoli, muri bianchi illuminati"
+                src={image}
+                alt={title}
                 fill
                 className="object-cover"
                 sizes="(max-width: 768px) 100vw, 70vw"
@@ -75,9 +81,7 @@ export default function ThePlaceSection() {
               className="mt-4 text-ink-tertiary leading-relaxed"
               style={{ fontSize: "0.8125rem" }}
             >
-              L&apos;esperienza si svolge tra la Fontana Greca, il Castello, i
-              vicoli del centro storico e il lungomare. Si gioca dal tramonto in
-              poi.
+              {caption}
             </p>
           </div>
 
@@ -99,13 +103,13 @@ export default function ThePlaceSection() {
                 className="label-ui mb-3"
                 style={{ color: "var(--ink-tertiary)" }}
               >
-                Prossime citt&agrave;
+                Prossime città
               </p>
               <p
                 className="font-serif font-light italic text-ink-tertiary mb-2"
                 style={{ fontSize: "1.0625rem" }}
               >
-                Roma &middot; Ortigia &middot; Matera
+                Roma · Ortigia · Matera
               </p>
               <p className="label-ui" style={{ color: "var(--ink-whisper)" }}>
                 in arrivo

@@ -10,7 +10,7 @@ declare global {
 
 type State = "idle" | "loading" | "error";
 
-export default function PreorderSection() {
+export default function PreorderSection({ body, citySlug }: { body: string; citySlug: string }) {
   const ref = useRef<HTMLElement>(null);
   const [visible, setVisible] = useState(false);
   const [email, setEmail] = useState("");
@@ -57,7 +57,7 @@ export default function PreorderSection() {
       const res = await fetch("/api/preorder/create", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email: email.trim().toLowerCase() }),
+        body: JSON.stringify({ email: email.trim().toLowerCase(), city: citySlug }),
       });
 
       const data = await res.json();
@@ -121,10 +121,7 @@ export default function PreorderSection() {
             transitionTimingFunction: "cubic-bezier(0.16, 1, 0.3, 1)",
           }}
         >
-          Con 1€ ti riserviamo una notte a Gallipoli. Quando apriremo,
-          riceverai una email con un codice personale: potrai usarlo per accedere
-          all&apos;esperienza a 6,90€ invece di 9,90€. Se cambi idea, l&apos;euro ti
-          viene rimborsato. Nessuna trappola.
+          {body}
         </p>
 
         {/* Form */}
